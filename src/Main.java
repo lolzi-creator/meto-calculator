@@ -1,15 +1,44 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.print("Hello and welcome!");
+        Scanner scanner = new Scanner(System.in);
+        boolean keepRunning = true;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        while (keepRunning) {
+            System.out.println("\n--- Project Menu ---");
+            System.out.println("1. Calculator");
+            System.out.println("2. Calculator with GUI");
+            System.out.println("3. Banking Management Simulator");
+            System.out.println("4. Library Management System");
+            System.out.println("5. Task Management System");
+            System.out.println("6. Expense Management System");
+            System.out.println("7. Logistics Management System");
+            System.out.println("8. Student Management System");
+            System.out.println("9. Inventory Management System");
+            System.out.println("10. Exit");
+            System.out.print("Choose an option: ");
+
+            String choice = scanner.nextLine();
+
+            switch (choice) {
+                case "1" -> Calculator.run();
+                case "2" -> Calculator.run();
+                case "3" -> new BankingManager().run();
+                case "4" -> new LibraryManager().run();
+                case "5" -> new TaskManager().run();
+                case "6" -> new ExpenseTracker().run();
+                case "7" -> new LogisticsManager().run();
+                case "8" -> new StudentManager().run();
+                case "9" -> new InventoryManager().run();
+                case "10" -> {
+                    System.out.println("Exiting the program. Goodbye!");
+                    keepRunning = false;
+                }
+                default -> System.out.println("Invalid choice. Please try again.");
+            }
         }
+
+        scanner.close();
     }
 }
